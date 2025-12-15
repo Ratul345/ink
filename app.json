@@ -2,6 +2,7 @@
   "expo": {
     "name": "ink",
     "slug": "ink",
+    "description": "Ink is a simple, offline notes app built for quick thoughts, ideas, and personal writing. No accounts, no distractions—just write and save.",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
