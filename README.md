@@ -4,7 +4,9 @@
 
 Ink is a minimalist, offline-first notes app built for focus. No accounts, no cloud sync, no distractions—just you and your thoughts.
 
-![Ink Banner](assets/images/icon.png)
+<div align="center">
+  <img src="assets/images/icon.png" width="120" alt="Ink Logo">
+</div>
 
 ## ✨ Philosophy
 
