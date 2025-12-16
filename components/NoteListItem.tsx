@@ -1,25 +1,27 @@
 import { Link } from 'expo-router';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { Note } from '../utils/storage';
+import { Theme } from '../utils/theme';
 
 interface NoteListItemProps {
     note: Note;
     onLongPress?: (note: Note) => void;
+    theme: Theme;
 }
 
-export default function NoteListItem({ note, onLongPress }: NoteListItemProps) {
+export default function NoteListItem({ note, onLongPress, theme }: NoteListItemProps) {
     return (
         <Link href={`/note/${note.id}`} asChild>
             <Pressable 
-                style={styles.container}
+                style={[styles.container, { borderBottomColor: theme.border }]}
                 onLongPress={() => onLongPress?.(note)}
                 delayLongPress={500}
             >
                 <View style={styles.content}>
-                    <Text style={styles.title} numberOfLines={1}>
+                    <Text style={[styles.title, { color: theme.text }]} numberOfLines={1}>
                         {note.title || 'Untitled'}
                     </Text>
-                    <Text style={styles.date}>
+                    <Text style={[styles.date, { color: theme.secondaryText }]}>
                         {new Date(note.updatedAt).toLocaleDateString()}
                     </Text>
                 </View>
@@ -32,7 +34,6 @@ const styles = StyleSheet.create({
     container: {
         paddingVertical: 16,
         borderBottomWidth: StyleSheet.hairlineWidth,
-        borderBottomColor: '#333',
     },
     content: {
         flexDirection: 'row',
@@ -42,12 +43,10 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 18,
         fontWeight: '500',
-        color: '#fff',
         flex: 1,
         marginRight: 16,
     },
     date: {
         fontSize: 14,
-        color: '#888',
     },
 });

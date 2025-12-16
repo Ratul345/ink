@@ -1,21 +1,24 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Stack, useRouter } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, useColorScheme } from "react-native";
+import { getTheme } from "../utils/theme";
 
 
 export default function RootLayout() {
   const router = useRouter();
+  const colorScheme = useColorScheme();
+  const theme = getTheme(colorScheme);
 
   return (
     <>
-      <StatusBar style="light" />
+      <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
       <Stack
         screenOptions={{
-          headerStyle: { backgroundColor: "#000" },
-          headerTintColor: "#fff",
+          headerStyle: { backgroundColor: theme.background },
+          headerTintColor: theme.text,
           headerTitleStyle: { fontWeight: "bold" },
-          contentStyle: { backgroundColor: "#000" },
+          contentStyle: { backgroundColor: theme.background },
           headerShadowVisible: false,
         }}
       >
@@ -25,7 +28,7 @@ export default function RootLayout() {
             title: "Ink",
             headerRight: () => (
               <TouchableOpacity onPress={() => router.push("/note/new")}>
-                <Ionicons name="create-outline" size={24} color="#fff" />
+                <Ionicons name="create-outline" size={24} color={theme.text} />
               </TouchableOpacity>
             ),
           }}

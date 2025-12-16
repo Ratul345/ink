@@ -11,10 +11,10 @@ Ink is a minimalist, offline-first notes app built for focus. No accounts, no cl
 ## ✨ Philosophy
 
 Ink isn't trying to replace Notion or Obsidian. It is designed to be:
-- **Calm**: A dark, distraction-free interface that respects your attention.
+- **Calm**: A clean, distraction-free interface that respects your attention. Light or dark, it follows your system preference.
 - **Private**: 100% offline. Your data never leaves your device.
-- **Fast**: Opens instantly. Saves automatically.
-- **Intentional**: Every feature earns its place. If it doesn't help you write, it's not here.
+- **Fast**: Opens instantly. Saves automatically. Search is immediate.
+- **Intentional**: Every feature earns its place. Search helps you find thoughts faster. System theme respects your choice. If it doesn't help you write, it's not here.
 
 Ink is designed for people who think better when the world goes quiet.
 
@@ -24,6 +24,8 @@ Ink is designed for people who think better when the world goes quiet.
 - **Smart Auto-Save**: Trust is everything. Ink saves your work as you type, with a subtle indicator to let you know it's safe.
 - **Intelligent Titles**: Leave the title blank? Ink automatically pulls the first line of your thought so your list stays clean.
 - **Tactile Interactions**: Long-press to delete with confirmation. Subtle haptic feedback. It feels like a real tool.
+- **Instant Search**: Find your thoughts instantly. Search works across titles and content, local-only, no filters needed.
+- **System Theme**: Follows your device's light/dark mode automatically. No settings, no toggles—just respects your preference.
 - **Cross-Platform**: Built with React Native & Expo to run beautifully on iOS, Android, and Web.
 
 ## 🛠️ Tech Stack

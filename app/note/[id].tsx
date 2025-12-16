@@ -12,6 +12,7 @@ import {
     View
 } from "react-native";
 import { deleteNote, getNote, saveNote } from "../../utils/storage";
+import { getCurrentTheme, subscribeToThemeChanges, Theme } from "../../utils/theme";
 
 export default function NoteEditor() {
     const { id } = useLocalSearchParams<{ id: string }>();
@@ -24,6 +25,7 @@ export default function NoteEditor() {
     const [noteId, setNoteId] = useState<string | undefined>(
         id === "new" ? undefined : id
     );
+    const [theme, setTheme] = useState<Theme>(getCurrentTheme());
 
     useEffect(() => {
         const loadNote = async () => {
@@ -39,6 +41,11 @@ export default function NoteEditor() {
         };
         loadNote();
     }, [id]);
+
+    useEffect(() => {
+        const unsubscribe = subscribeToThemeChanges(setTheme);
+        return () => unsubscribe();
+    }, []);
 
     const handleSave = async () => {
         if (!title && !body) return; // Don't save empty notes
@@ -88,8 +95,8 @@ export default function NoteEditor() {
 
     if (loading) {
         return (
-            <View style={styles.center}>
-                <ActivityIndicator color="#fff" />
+            <View style={[styles.center, { backgroundColor: theme.background }]}>
+                <ActivityIndicator color={theme.text} />
             </View>
         );
     }
@@ -97,41 +104,46 @@ export default function NoteEditor() {
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
-            style={styles.container}
+            style={[styles.container, { backgroundColor: theme.background }]}
         >
             <Stack.Screen
                 options={{
+                    headerStyle: {
+                        backgroundColor: theme.background,
+                    },
+                    headerTintColor: theme.text,
+                    headerShadowVisible: false,
                     headerTitle: () => (
-                        <Text style={{ color: "#666", fontSize: 14, fontWeight: "600" }}>
-                            {saveStatus === "idle" ? "" : saveStatus === "saved" ? "Saved" : "Saving..."}
-                        </Text>
-                    ),
+                <Text style={{ color: theme.secondaryText, fontSize: 14, fontWeight: "600" }}>
+                    {saveStatus === "idle" ? "" : saveStatus === "saved" ? "Saved" : "Saving..."}
+                </Text>
+            ),
                     headerLeft: () => (
                         <TouchableOpacity onPress={handleBack} style={{ marginLeft: -8, padding: 8 }}>
-                            <Ionicons name="chevron-back" size={28} color="#fff" />
+                            <Ionicons name="chevron-back" size={28} color={theme.text} />
                         </TouchableOpacity>
                     ),
                     headerRight: () => (
                         id !== "new" && (
                             <TouchableOpacity onPress={handleDelete} style={{ padding: 8 }}>
-                                <Ionicons name="trash-outline" size={24} color="#ff4444" />
+                                <Ionicons name="trash-outline" size={24} color={theme.destructive} />
                             </TouchableOpacity>
                         )
                     ),
                 }}
             />
             <TextInput
-                style={styles.titleInput}
+                style={[styles.titleInput, { color: theme.text }]}
                 placeholder="Title"
-                placeholderTextColor="#666"
+                placeholderTextColor={theme.placeholder}
                 value={title}
                 onChangeText={setTitle}
                 onBlur={handleSave}
             />
             <TextInput
-                style={styles.bodyInput}
+                style={[styles.bodyInput, { color: theme.text }]}
                 placeholder="Start writing..."
-                placeholderTextColor="#666"
+                placeholderTextColor={theme.placeholder}
                 value={body}
                 onChangeText={setBody}
                 onBlur={handleSave}
@@ -145,25 +157,21 @@ export default function NoteEditor() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#000",
         padding: 20,
     },
     center: {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#000",
     },
     titleInput: {
         fontSize: 24,
         fontWeight: "bold",
-        color: "#fff",
         marginBottom: 16,
         padding: 0,
     },
     bodyInput: {
         fontSize: 18,
-        color: "#eee",
         flex: 1,
         padding: 0,
         lineHeight: 28,
