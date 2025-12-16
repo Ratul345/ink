@@ -57,6 +57,8 @@ Ink isn't trying to replace Notion or Obsidian. It is designed to be:
 3. **Start the development server**
    ```bash
    npx expo start
+   # or
+   bun expo start
    ```
 
 4. **Run on your device**
