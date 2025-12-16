@@ -16,6 +16,8 @@ Ink isn't trying to replace Notion or Obsidian. It is designed to be:
 - **Fast**: Opens instantly. Saves automatically.
 - **Intentional**: Every feature earns its place. If it doesn't help you write, it's not here.
 
+Ink is designed for people who think better when the world goes quiet.
+
 ## 🚀 Features
 
 - **Zero Friction**: Tap the pen to write. That's it.
@@ -29,7 +31,7 @@ Ink isn't trying to replace Notion or Obsidian. It is designed to be:
 - **Framework**: [React Native](https://reactnative.dev/) + [Expo](https://expo.dev/)
 - **Language**: TypeScript
 - **Navigation**: Expo Router
-- **Storage**: AsyncStorage (Local & Secure)
+- **Storage**: AsyncStorage (Local, on-device)
 - **Icons**: Ionicons
 
 ## 🏁 Getting Started
@@ -67,7 +69,7 @@ Ink isn't trying to replace Notion or Obsidian. It is designed to be:
 
 ## 🤝 Contributing
 
-We welcome contributions that align with Ink's philosophy of simplicity. Please read our [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+Contributions are welcome if they align with Ink's philosophy of simplicity. Please keep pull requests small, focused, and intentional. Please read our [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
 ## 📄 License
 

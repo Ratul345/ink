@@ -2,6 +2,17 @@
 
 First off, thank you for considering contributing to Ink! It's people like you that make the open source community such an amazing place to learn, inspire, and create.
 
+## 📋 Code of Conduct
+
+By participating in this project, you are expected to uphold our code of conduct:
+
+- **Be respectful**: Treat everyone with respect. Healthy disagreement is fine, personal attacks are not.
+- **Stay constructive**: Focus on what makes Ink better. Avoid bikeshedding and feature creep.
+- **Keep it simple**: Remember Ink's philosophy. If it doesn't help people write, it doesn't belong.
+- **Own your words**: Speak from experience, not authority. "I prefer" beats "you should".
+
+This is a small project with a clear vision. Contributions that align with Ink's minimalist philosophy are welcome. Those that don't will be kindly declined.
+
 ## 🤝 How Can I Contribute?
 
 ### Reporting Bugs
