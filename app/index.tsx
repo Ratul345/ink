@@ -1,6 +1,6 @@
 import { useFocusEffect } from "expo-router";
 import { useCallback, useState } from "react";
-import { ActivityIndicator, FlatList, StyleSheet, Text, Vibration, View } from "react-native";
+import { ActivityIndicator, Alert, FlatList, StyleSheet, Text, Vibration, View } from "react-native";
 import NoteListItem from "../components/NoteListItem";
 import { deleteNote, getNotes, Note } from "../utils/storage";
 
@@ -17,8 +17,25 @@ export default function Index() {
 
   const handleDelete = async (note: Note) => {
     Vibration.vibrate(50); // Tactile feedback
-    await deleteNote(note.id);
-    loadNotes();
+    
+    Alert.alert(
+      "Delete Note",
+      "Are you sure you want to delete this note? This action cannot be undone.",
+      [
+        {
+          text: "Cancel",
+          style: "cancel"
+        },
+        {
+          text: "Delete",
+          style: "destructive",
+          onPress: async () => {
+            await deleteNote(note.id);
+            loadNotes();
+          }
+        }
+      ]
+    );
   };
 
   useFocusEffect(
