@@ -1,134 +1,73 @@
 # Ink ✍️
 
-**A simple, offline notes app built for quick thoughts, ideas, and personal writing.**
+> **"Quietly. Like you’d look at your own handwriting after a long night."**
 
-No accounts. No distractions. Just write and save.
+Ink is a minimalist, offline-first notes app built for focus. No accounts, no cloud sync, no distractions—just you and your thoughts.
 
----
+![Ink Banner](assets/images/icon.png)
 
-## 🌟 What is Ink?
+## ✨ Philosophy
 
-Ink is a minimalist React Native notes app built with Expo. It's designed to get out of your way and let you focus on what matters — capturing your thoughts instantly, offline, with zero friction.
+Ink isn't trying to replace Notion or Obsidian. It is designed to be:
+- **Calm**: A dark, distraction-free interface that respects your attention.
+- **Private**: 100% offline. Your data never leaves your device.
+- **Fast**: Opens instantly. Saves automatically.
+- **Intentional**: Every feature earns its place. If it doesn't help you write, it's not here.
 
-Perfect for:
-- Quick thoughts and ideas
-- Daily journaling
-- Meeting notes
-- Writing drafts
-- Brain dumps
+## 🚀 Features
 
----
-
-## ✨ Features
-
-- **100% Offline** — All notes stored locally on your device
-- **Zero Setup** — No sign-ups, no accounts, no cloud sync
-- **Fast & Clean** — Dark-mode UI with minimalist design
-- **Auto-Save** — Never lose your work
-- **Cross-Platform** — Works on iOS, Android, and Web
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-Make sure you have Node.js installed, then:
-
-```bash
-npm install -g expo-cli
-```
-
-### Installation
-
-1. Clone the repo:
-```bash
-git clone https://github.com/Ratul345/ink.git
-cd ink
-```
-
-2. Install dependencies:
-```bash
-npm install
-# or
-bun install
-```
-
-3. Start the app:
-```bash
-npx expo start
-```
-
-You can now open the app in:
-- **Expo Go** (for quick testing)
-- **iOS Simulator** (Mac only)
-- **Android Emulator**
-- **Web Browser**
-
----
-
-## 📂 Project Structure
-
-```
-ink/
-├── app/
-│   ├── _layout.tsx          # Root navigation layout
-│   ├── index.tsx             # Home screen (notes list)
-│   └── note/[id].tsx         # Note editor screen
-├── components/
-│   └── NoteListItem.tsx      # Individual note preview component
-├── utils/
-│   └── storage.ts            # AsyncStorage logic for CRUD operations
-├── assets/
-│   └── images/               # App icons and splash screen
-└── app.json                  # Expo configuration
-```
-
----
+- **Zero Friction**: Tap the pen to write. That's it.
+- **Smart Auto-Save**: Trust is everything. Ink saves your work as you type, with a subtle indicator to let you know it's safe.
+- **Intelligent Titles**: Leave the title blank? Ink automatically pulls the first line of your thought so your list stays clean.
+- **Tactile Interactions**: Long-press to delete. Subtle haptic feedback. It feels like a real tool.
+- **Cross-Platform**: Built with React Native & Expo to run beautifully on iOS, Android, and Web.
 
 ## 🛠️ Tech Stack
 
-- **React Native** — Cross-platform mobile framework
-- **Expo** — Development toolchain and SDK
-- **TypeScript** — Type-safe JavaScript
-- **AsyncStorage** — Local device storage
-- **Expo Router** — File-based navigation
-- **Expo Crypto** — UUID generation for notes
+- **Framework**: [React Native](https://reactnative.dev/) + [Expo](https://expo.dev/)
+- **Language**: TypeScript
+- **Navigation**: Expo Router
+- **Storage**: AsyncStorage (Local & Secure)
+- **Icons**: Ionicons
 
----
+## 🏁 Getting Started
 
-## 📝 How It Works
+### Prerequisites
 
-1. **Create a note** — Tap the pen icon on the home screen
-2. **Write freely** — Add a title and body, everything auto-saves
-3. **View your notes** — All saved notes appear on the home screen
-4. **Delete when done** — Tap the trash icon to remove a note
+- Node.js (LTS recommended)
+- npm or bun
 
-All data is stored securely on your device using AsyncStorage. Nothing leaves your phone.
+### Installation
 
----
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Ratul345/ink.git
+   cd ink
+   ```
 
-## 🎨 Design Philosophy
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   bun install
+   ```
 
-Ink follows a **minimalist, distraction-free** approach:
-- Black background, white text — easy on the eyes
-- No unnecessary buttons or features
-- Instant app launch — no loading screens
-- Auto-save on blur — you never have to think about saving
+3. **Start the development server**
+   ```bash
+   npx expo start
+   ```
 
----
+4. **Run on your device**
+   - Download the **Expo Go** app on iOS or Android.
+   - Scan the QR code shown in your terminal.
 
 ## 🤝 Contributing
 
-This is a personal project, but if you want to fork it, improve it, or build on top of it — go for it! Just give credit where it's due.
-
----
+We welcome contributions that align with Ink's philosophy of simplicity. Please read our [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
 ## 📄 License
 
-MIT License — feel free to use this however you want.
-
----
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 

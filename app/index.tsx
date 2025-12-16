@@ -1,8 +1,8 @@
 import { useFocusEffect } from "expo-router";
 import { useCallback, useState } from "react";
-import { ActivityIndicator, FlatList, StyleSheet, Text, View } from "react-native";
+import { ActivityIndicator, FlatList, StyleSheet, Text, Vibration, View } from "react-native";
 import NoteListItem from "../components/NoteListItem";
-import { getNotes, Note } from "../utils/storage";
+import { deleteNote, getNotes, Note } from "../utils/storage";
 
 export default function Index() {
   const [notes, setNotes] = useState<Note[]>([]);
@@ -13,6 +13,12 @@ export default function Index() {
     const data = await getNotes();
     setNotes(data);
     setLoading(false);
+  };
+
+  const handleDelete = async (note: Note) => {
+    Vibration.vibrate(50); // Tactile feedback
+    await deleteNote(note.id);
+    loadNotes();
   };
 
   useFocusEffect(
@@ -40,7 +46,12 @@ export default function Index() {
         <FlatList
           data={notes}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <NoteListItem note={item} />}
+          renderItem={({ item }) => (
+            <NoteListItem 
+              note={item} 
+              onLongPress={handleDelete}
+            />
+          )}
           contentContainerStyle={styles.list}
         />
       )}

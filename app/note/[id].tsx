@@ -6,6 +6,7 @@ import {
     KeyboardAvoidingView,
     Platform,
     StyleSheet,
+    Text,
     TextInput,
     TouchableOpacity,
     View
@@ -19,6 +20,7 @@ export default function NoteEditor() {
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
     const [loading, setLoading] = useState(true);
+    const [saveStatus, setSaveStatus] = useState<"saved" | "saving" | "idle">("idle");
     const [noteId, setNoteId] = useState<string | undefined>(
         id === "new" ? undefined : id
     );
@@ -40,8 +42,24 @@ export default function NoteEditor() {
 
     const handleSave = async () => {
         if (!title && !body) return; // Don't save empty notes
-        const savedNote = await saveNote(title, body, noteId);
+        
+        setSaveStatus("saving");
+        
+        let titleToSave = title;
+        if (!titleToSave.trim() && body.trim()) {
+            // Auto-generate title from first line of body
+            const firstLine = body.trim().split('\n')[0];
+            titleToSave = firstLine.substring(0, 50).trim();
+            if (titleToSave !== title) {
+                setTitle(titleToSave);
+            }
+        }
+
+        const savedNote = await saveNote(titleToSave, body, noteId);
         setNoteId(savedNote.id); // Update ID if it was new
+        
+        setSaveStatus("saved");
+        setTimeout(() => setSaveStatus("idle"), 2000);
     };
 
     // Auto-save when leaving
@@ -83,6 +101,11 @@ export default function NoteEditor() {
         >
             <Stack.Screen
                 options={{
+                    headerTitle: () => (
+                        <Text style={{ color: "#666", fontSize: 14, fontWeight: "600" }}>
+                            {saveStatus === "idle" ? "" : saveStatus === "saved" ? "Saved" : "Saving..."}
+                        </Text>
+                    ),
                     headerLeft: () => (
                         <TouchableOpacity onPress={handleBack} style={{ marginLeft: -8, padding: 8 }}>
                             <Ionicons name="chevron-back" size={28} color="#fff" />

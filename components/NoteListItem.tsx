@@ -4,12 +4,17 @@ import { Note } from '../utils/storage';
 
 interface NoteListItemProps {
     note: Note;
+    onLongPress?: (note: Note) => void;
 }
 
-export default function NoteListItem({ note }: NoteListItemProps) {
+export default function NoteListItem({ note, onLongPress }: NoteListItemProps) {
     return (
         <Link href={`/note/${note.id}`} asChild>
-            <Pressable style={styles.container}>
+            <Pressable 
+                style={styles.container}
+                onLongPress={() => onLongPress?.(note)}
+                delayLongPress={500}
+            >
                 <View style={styles.content}>
                     <Text style={styles.title} numberOfLines={1}>
                         {note.title || 'Untitled'}
