@@ -21,7 +21,7 @@ Ink isn't trying to replace Notion or Obsidian. It is designed to be:
 - **Zero Friction**: Tap the pen to write. That's it.
 - **Smart Auto-Save**: Trust is everything. Ink saves your work as you type, with a subtle indicator to let you know it's safe.
 - **Intelligent Titles**: Leave the title blank? Ink automatically pulls the first line of your thought so your list stays clean.
-- **Tactile Interactions**: Long-press to delete. Subtle haptic feedback. It feels like a real tool.
+- **Tactile Interactions**: Long-press to delete with confirmation. Subtle haptic feedback. It feels like a real tool.
 - **Cross-Platform**: Built with React Native & Expo to run beautifully on iOS, Android, and Web.
 
 ## 🛠️ Tech Stack
