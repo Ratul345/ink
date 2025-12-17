@@ -3,6 +3,10 @@
 # dependencies
 node_modules/
 
+# md files
+play-store.md
+app-store.md
+
 # Expo
 .expo/
 dist/
