@@ -6,6 +6,7 @@ node_modules/
 # md files
 play-store.md
 app-store.md
+amazon-appstore.md
 
 # Expo
 .expo/
